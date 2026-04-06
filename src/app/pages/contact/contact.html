@@ -1,0 +1,315 @@
+<!-- HERO SECTION -->
+<section class="jd-contact-hero">
+  <div class="container">
+    <div class="hero-content text-center">
+      <span class="badge badge-outline mb-3">Get in Touch</span>
+      <h1 class="fw-bold mb-3">Say Hello!</h1>
+      <p class="lead mb-0">
+        We're excited to hear about your project. Drop us a line and let's start the conversation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="section-pad" style="background: var(--jd-bg);">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Left: Contact Information -->
+      <div class="col-lg-5">
+        <h2 class="fw-bold mb-4">Contact Information</h2>
+        
+        <!-- Email Card -->
+        <div class="contact-info-card mb-4">
+          <div class="info-header">
+            <div class="info-icon">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <h5 class="fw-bold">Email</h5>
+          </div>
+          <p class="text-muted mb-0">
+            <a href="mailto:hello@jdinfotech.com">hello@jdinfotech.com</a>
+          </p>
+          <p class="text-muted small">We respond within 24 hours</p>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="contact-info-card mb-4">
+          <div class="info-header">
+            <div class="info-icon">
+              <i class="bi bi-telephone"></i>
+            </div>
+            <h5 class="fw-bold">Phone</h5>
+          </div>
+          <p class="text-muted mb-0">
+            <a href="tel:+916353799159">+91-6353799159</a>
+          </p>
+          <p class="text-muted small">Mon–Sat, 9:00 AM – 6:00 PM</p>
+        </div>
+
+        <!-- Location Card -->
+        <div class="contact-info-card">
+          <div class="info-header">
+            <div class="info-icon">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+            <h5 class="fw-bold">Location</h5>
+          </div>
+          <p class="text-muted mb-0">
+            New York, USA (Remote Friendly)
+          </p>
+          <p class="text-muted small">Open for global projects</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links mt-5">
+          <h5 class="fw-bold mb-3">Follow Us</h5>
+          <div class="social-icons">
+            <a href="#" class="social-icon" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="social-icon" title="Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#" class="social-icon" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="#" class="social-icon" title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="col-lg-7">
+        <div class="contact-form-wrapper">
+          <h2 class="fw-bold mb-4">Send us a Message</h2>
+
+          <div *ngIf="sent" class="alert alert-success alert-with-icon mb-4">
+            <i class="bi bi-check-circle"></i>
+            <div>
+              <strong>Message Sent!</strong>
+              <p class="mb-0">Thank you for contacting us. We'll get back to you soon.</p>
+            </div>
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <!-- Name and Email Row -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Full Name *</label>
+                <input 
+                  class="form-control" 
+                  formControlName="name" 
+                  placeholder="Your full name"
+                />
+                <div class="text-danger small mt-1" *ngIf="ctrl('name')?.touched && ctrl('name')?.invalid">
+                  Name is required (min 2 characters).
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email Address *</label>
+                <input 
+                  class="form-control" 
+                  formControlName="email" 
+                  placeholder="your@email.com"
+                />
+                <div class="text-danger small mt-1" *ngIf="ctrl('email')?.touched && ctrl('email')?.invalid">
+                  Enter a valid email address.
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone and Company Row -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input 
+                  class="form-control" 
+                  formControlName="phone" 
+                  placeholder="+91 XXXX-XXXX-XXX"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Company Name</label>
+                <input 
+                  class="form-control" 
+                  placeholder="Your company name"
+                />
+              </div>
+            </div>
+
+            <!-- Requirement Dropdown -->
+            <div class="mb-4">
+              <label class="form-label">Requirement *</label>
+              <select class="form-control form-select" required>
+                <option value="">Select your requirement</option>
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile App Development</option>
+                <option value="ecommerce">eCommerce Solutions</option>
+                <option value="enterprise">Enterprise Solutions</option>
+                <option value="dedicated">Hire Dedicated Developer</option>
+                <option value="consultation">Business Consultation</option>
+                <option value="partnership">Partnership</option>
+                <option value="other">Others</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-4">
+              <label class="form-label">Message *</label>
+              <textarea 
+                class="form-control" 
+                rows="6" 
+                formControlName="message"
+                placeholder="Tell us about your project, goals, and timeline..."
+              ></textarea>
+              <div class="text-danger small mt-1" *ngIf="ctrl('message')?.touched && ctrl('message')?.invalid">
+                Message is required (min 10 characters).
+              </div>
+              <small class="text-muted d-block mt-2">
+                <i class="bi bi-info-circle me-1"></i>
+                Please provide as much detail as possible to help us serve you better.
+              </small>
+            </div>
+
+            <!-- Attachment -->
+            <div class="mb-4">
+              <label class="form-label">Attachment (Optional)</label>
+              <div class="file-upload">
+                <input type="file" id="fileUpload" class="file-input">
+                <label for="fileUpload" class="file-label">
+                  <i class="bi bi-cloud-upload"></i>
+                  <span>Click to upload or drag and drop</span>
+                  <small>Max file size: 5MB</small>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-flex gap-3 align-items-center">
+              <button 
+                class="btn btn-primary btn-lg px-5" 
+                type="submit"
+              >
+                <i class="bi bi-send me-2"></i> Send Message
+              </button>
+              <small class="text-muted">
+                We usually respond within 24 hours
+              </small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE LOCATIONS SECTION -->
+<section class="section-pad" style="background: white;">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="fw-bold mb-2">Our Office</h2>
+      <p class="text-muted">Headquartered in Ahmedabad, India. We're available globally and open for remote collaboration.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- India Office -->
+      <div class="col-md-6 col-lg-4 mx-auto">
+        <div class="office-card">
+          <div class="office-flag">
+            <span>🇮🇳</span>
+          </div>
+          <h4 class="fw-bold">India Office (Remote)</h4>
+          <div class="office-details">
+            <div class="detail-item">
+              <i class="bi bi-geo-alt"></i>
+              <div>
+                <strong>Address</strong>
+                <p>Ahmedabad, Gujarat, India</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="bi bi-telephone"></i>
+              <div>
+                <strong>Phone</strong>
+                <p><a href="tel:+919876543210">+91 9876-543-210</a></p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="bi bi-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:india@jdinfotech.com">india@jdinfotech.com</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-primary w-100 mt-3">Get Directions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / QUICK ANSWERS SECTION -->
+<section class="section-pad" style="background: var(--jd-bg);">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="fw-bold mb-2">Frequently Asked Questions</h2>
+      <p class="text-muted">Quick answers to common questions</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h5 class="fw-bold mb-2">
+            <i class="bi bi-lightbulb text-primary me-2"></i>
+            What's the typical project timeline?
+          </h5>
+          <p class="text-muted mb-0">
+            Most projects take 4-12 weeks depending on complexity. We'll provide a detailed estimate after our initial discussion.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h5 class="fw-bold mb-2">
+            <i class="bi bi-currency-dollar text-primary me-2"></i>
+            How is pricing structured?
+          </h5>
+          <p class="text-muted mb-0">
+            We offer Fixed Price, Time & Material, and Dedicated Team models. We customize pricing based on your specific needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h5 class="fw-bold mb-2">
+            <i class="bi bi-chat-dots text-primary me-2"></i>
+            Do you provide ongoing support?
+          </h5>
+          <p class="text-muted mb-0">
+            Yes! We offer maintenance, updates, and continuous optimization after project launch.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h5 class="fw-bold mb-2">
+            <i class="bi bi-shield-check text-primary me-2"></i>
+            What's your security approach?
+          </h5>
+          <p class="text-muted mb-0">
+            We follow industry best practices, including encryption, secure APIs, and regular security audits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

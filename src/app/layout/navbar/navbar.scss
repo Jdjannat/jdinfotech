@@ -1,0 +1,215 @@
+/* ============ NAVBAR STYLES ============ */
+.jd-navbar {
+  background: rgba(11, 18, 32, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  
+  &:hover {
+    background: rgba(11, 18, 32, 0.95);
+  }
+}
+
+/* ============ NAVBAR BRAND ============ */
+.navbar-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  color: white;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: -1px;
+}
+
+.brand-text {
+  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============ NAVBAR TOGGLER (Mobile) ============ */
+.navbar-toggler {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+  background: none !important;
+  padding: 0 !important;
+  
+  span {
+    width: 24px;
+    height: 2.5px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+  
+  &:not(.collapsed) span {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+}
+
+/* ============ NAVBAR COLLAPSE ============ */
+.navbar-collapse {
+  flex-grow: 0;
+  
+  @media (max-width: 991px) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 18, 32, 0.98);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ============ NAVBAR ITEMS ============ */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  
+  @media (max-width: 991px) {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.nav-item {
+  position: relative;
+  
+  @media (max-width: 991px) {
+    width: 100%;
+  }
+}
+
+/* ============ NAV LINKS ============ */
+.nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+  padding: 8px 16px !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  white-space: nowrap;
+  
+  i {
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+  
+  &:hover {
+    color: white !important;
+    background: rgba(13, 110, 253, 0.15);
+    transform: translateY(-1px);
+    
+    i {
+      opacity: 1;
+    }
+  }
+  
+  &.active {
+    color: #0d6efd !important;
+    background: rgba(13, 110, 253, 0.2);
+    
+    i {
+      color: #00d4ff;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    padding: 12px 16px !important;
+    width: 100%;
+  }
+}
+
+/* ============ NAV CTA ============ */
+.nav-cta {
+  background: linear-gradient(135deg, #0d6efd, #00d4ff) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  margin-top: 8px;
+  font-weight: 600;
+  
+  &:hover {
+    opacity: 0.9;
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 991px) {
+    margin-top: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============ ANIMATIONS ============ */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-link {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #0d6efd, #00d4ff);
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    
+    &:hover::after,
+    &.active::after {
+      width: calc(100% - 32px);
+    }
+  }
+}

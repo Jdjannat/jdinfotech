@@ -1,0 +1,68 @@
+<!-- <section class="section-pad">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Portfolio</h2>
+        <p class="text-muted mb-0">A few sample projects (replace with your real work).</p>
+      </div>
+      <a routerLink="/contact" class="btn btn-outline-primary">Start a Project</a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let p of projects">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge text-bg-light border">{{ p.category }}</span>
+            </div>
+
+            <h5 class="fw-semibold">{{ p.title }}</h5>
+            <p class="text-muted">{{ p.desc }}</p>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge text-bg-secondary" *ngFor="let t of p.tags">{{ t }}</span>
+            </div>
+
+            <a *ngIf="p.link" class="btn btn-sm btn-primary" [href]="p.link" target="_blank" rel="noreferrer">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="section-pad" style="background: var(--jd-bg);">
+  <div class="container">
+    <div class="section-title mb-4">
+      <h2 class="fw-bold mb-2">Solutions</h2>
+      <p class="text-muted mb-0">Choose a package or ask for a custom plan.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let s of services">
+        <div class="card-soft p-4 h-100">
+          <div class="d-flex gap-3">
+            <div class="icon-pill"><i class="bi {{s.icon}}"></i></div>
+            <div>
+              <h5 class="fw-semibold mb-1">{{s.title}}</h5>
+              <p class="text-muted mb-0">{{s.desc}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-soft p-4 mt-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-8">
+          <h5 class="fw-semibold mb-1">Need a dedicated team?</h5>
+          <div class="text-muted">We can work as an extended team for ongoing improvements.</div>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a routerLink="/contact" class="btn btn-primary btn-lg px-4">Request Proposal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

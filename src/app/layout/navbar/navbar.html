@@ -1,0 +1,49 @@
+<nav class="jd-navbar">
+  <div class="container-lg">
+    <!-- Logo -->
+    <div class="navbar-brand-wrapper">
+      <a class="navbar-brand" routerLink="/">
+        <span class="brand-icon">JD</span>
+        <span class="brand-text">Infotech</span>
+      </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu -->
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <i class="bi bi-house-door"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">
+            <i class="bi bi-briefcase"></i> Company
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services" routerLinkActive="active">
+            <i class="bi bi-lightning"></i> Solutions
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">
+            <i class="bi bi-star"></i> Case Studies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-cta" routerLink="/contact">
+            <i class="bi bi-telephone"></i> Talk to us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

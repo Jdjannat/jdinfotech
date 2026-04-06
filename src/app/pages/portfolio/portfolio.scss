@@ -1,0 +1,324 @@
+/* ============ PORTFOLIO PAGE STYLES ============ */
+
+/* ============ HERO SECTION ============ */
+.jd-portfolio-hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(0, 212, 255, 0.03));
+  border-bottom: 1px solid rgba(13, 110, 253, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+.jd-portfolio-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #1e293b;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.jd-portfolio-hero .lead {
+  font-size: 1.1rem;
+  color: var(--jd-text-light);
+}
+
+/* ============ FILTER BUTTONS ============ */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid var(--jd-border);
+  color: #1e293b;
+  padding: 10px 24px;
+  border-radius: var(--br-lg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: var(--jd-primary);
+    color: var(--jd-primary);
+  }
+  
+  &.active {
+    background: linear-gradient(135deg, #0d6efd, #00d4ff);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+  }
+}
+
+/* ============ PROJECTS GRID ============ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 32px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* ============ PROJECT CARD ============ */
+.project-card {
+  background: white;
+  border-radius: var(--br-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--jd-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  &:hover {
+    border-color: var(--jd-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    
+    .project-overlay {
+      opacity: 1;
+    }
+    
+    .project-image-placeholder {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: var(--jd-bg);
+  overflow: hidden;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 212, 255, 0.05));
+  color: rgba(13, 110, 253, 0.3);
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 18, 32, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-link {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1) rotate(45deg);
+  }
+}
+
+/* ============ PROJECT INFO ============ */
+.project-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card h4 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  color: var(--jd-text-light);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.badge.border {
+  background: var(--jd-bg);
+  border: 1px solid var(--jd-border) !important;
+  color: var(--jd-text-light) !important;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+}
+
+/* ============ PROJECT TAGS ============ */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(13, 110, 253, 0.08);
+  color: var(--jd-primary);
+  padding: 6px 12px;
+  border-radius: var(--br-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(13, 110, 253, 0.15);
+  }
+}
+
+/* ============ PROCESS SECTION ============ */
+.process-step {
+  background: white;
+  border: 1px solid var(--jd-border);
+  border-radius: var(--br-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    border-color: var(--jd-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 auto 16px;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
+}
+
+.process-step h5 {
+  color: #1e293b;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.process-step p {
+  color: var(--jd-text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ============ CTA SECTION ============ */
+.bg-dark {
+  background: linear-gradient(135deg, var(--jd-dark) 0%, var(--jd-darker) 100%);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.15), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  
+  h3 {
+    color: white;
+  }
+  
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .jd-portfolio-hero {
+    padding: 60px 0;
+  }
+  
+  .jd-portfolio-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+  
+  .filter-buttons {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .process-step {
+    padding: 24px 16px;
+  }
+}
