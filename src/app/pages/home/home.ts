@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 type Card = { icon: string; title: string; desc: string; };
 type Industry = { name: string; points: string[] };
 type Insight = { title: string; date: string; tag: string; };
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

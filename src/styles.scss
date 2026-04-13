@@ -111,7 +111,9 @@ p {
 
 .section-title {
   max-width: 720px;
-  margin-bottom: var(--spacing-xl);
+  // margin: 0 auto var(--spacing-xl);
+  display: block;
+  width: 100%;
 }
 
 /* ============ BUTTONS ============ */
