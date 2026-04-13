@@ -11,6 +11,7 @@
     <!-- Mobile Toggle -->
     <button 
       class="navbar-toggler collapsed" 
+      #navToggler
       type="button" 
       data-bs-toggle="collapse" 
       data-bs-target="#nav" 
@@ -23,34 +24,34 @@
     </button>
 
     <!-- Menu -->
-    <div id="nav" class="collapse navbar-collapse">
+    <div id="nav" #navMenu class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenuOnMobile()">
             <i class="bi bi-house-door"></i> Home
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="closeMenuOnMobile()">
             <i class="bi bi-briefcase"></i> Company
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/services" routerLinkActive="active">
+          <a class="nav-link" routerLink="/services" routerLinkActive="active" (click)="closeMenuOnMobile()">
             <i class="bi bi-lightning"></i> Solutions
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active" (click)="closeMenuOnMobile()">
             <i class="bi bi-star"></i> Case Studies
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link nav-cta" routerLink="/contact">
+          <a class="nav-link nav-cta" routerLink="/contact" (click)="closeMenuOnMobile()">
             <i class="bi bi-telephone"></i> Talk to us
           </a>
         </li>
