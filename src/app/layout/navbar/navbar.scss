@@ -1,17 +1,28 @@
 /* ============ NAVBAR STYLES ============ */
 .jd-navbar {
-  background: rgba(11, 18, 32, 0.92);
+  background: rgba(18, 24, 38, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
   padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 999;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(3, 8, 18, 0.45);
   
   &:hover {
-    background: rgba(11, 18, 32, 0.95);
+    background: rgba(18, 24, 38, 0.96);
+  }
+  
+  .container-lg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -41,7 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  background: var(--jd-gradient);
   color: white;
   border-radius: 8px;
   font-weight: 800;
@@ -50,7 +61,7 @@
 }
 
 .brand-text {
-  background: linear-gradient(135deg, #0d6efd, #00d4ff);
+  background: var(--jd-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -58,7 +69,7 @@
 
 /* ============ NAVBAR TOGGLER (Mobile) ============ */
 .navbar-toggler {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 5px;
   border: none;
@@ -68,7 +79,7 @@
   span {
     width: 24px;
     height: 2.5px;
-    background: white;
+    background: #e8edf8;
     border-radius: 2px;
     transition: all 0.3s ease;
     display: block;
@@ -85,22 +96,34 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
   }
+  
+  @media (max-width: 991px) {
+    display: flex;
+  }
 }
 
 /* ============ NAVBAR COLLAPSE ============ */
 .navbar-collapse {
   flex-grow: 0;
+  width: auto;
   
   @media (max-width: 991px) {
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(11, 18, 32, 0.98);
+    width: 100%;
+    background: rgba(18, 24, 38, 0.98);
     backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 20px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 20px 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    &.show {
+      display: flex !important;
+      flex-direction: column;
+    }
   }
 }
 
@@ -108,46 +131,51 @@
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-left: auto;
+  flex-wrap: nowrap;
   
   @media (max-width: 991px) {
     flex-direction: column;
     gap: 12px;
     align-items: flex-start;
     width: 100%;
+    margin-left: 0;
   }
 }
 
 .nav-item {
   position: relative;
+  flex-shrink: 0;
   
   @media (max-width: 991px) {
     width: 100%;
+    flex-shrink: unset;
   }
 }
 
 /* ============ NAV LINKS ============ */
 .nav-link {
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: rgba(231, 238, 255, 0.8) !important;
   font-weight: 500;
-  padding: 8px 16px !important;
+  padding: 6px 12px !important;
   border-radius: 6px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   position: relative;
   white-space: nowrap;
+  font-size: 0.95rem;
   
   i {
-    font-size: 1.1rem;
+    font-size: 1rem;
     opacity: 0.8;
   }
   
   &:hover {
-    color: white !important;
-    background: rgba(13, 110, 253, 0.15);
+    color: #ffffff !important;
+    background: rgba(239, 108, 66, 0.2);
     transform: translateY(-1px);
     
     i {
@@ -156,23 +184,24 @@
   }
   
   &.active {
-    color: #0d6efd !important;
-    background: rgba(13, 110, 253, 0.2);
+    color: #ffffff !important;
+    background: rgba(239, 108, 66, 0.28);
     
     i {
-      color: #00d4ff;
+      color: var(--jd-secondary);
     }
   }
   
   @media (max-width: 991px) {
     padding: 12px 16px !important;
     width: 100%;
+    font-size: 1rem;
   }
 }
 
 /* ============ NAV CTA ============ */
 .nav-cta {
-  background: linear-gradient(135deg, #0d6efd, #00d4ff) !important;
+  background: var(--jd-gradient) !important;
   color: white !important;
   border-radius: 8px !important;
   padding: 10px 20px !important;
@@ -181,7 +210,7 @@
   
   &:hover {
     opacity: 0.9;
-    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 10px 25px rgba(239, 108, 66, 0.35);
     transform: translateY(-2px);
   }
   
@@ -202,7 +231,7 @@
       left: 50%;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #0d6efd, #00d4ff);
+      background: var(--jd-gradient);
       transform: translateX(-50%);
       transition: width 0.3s ease;
     }

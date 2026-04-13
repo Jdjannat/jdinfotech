@@ -3,8 +3,6 @@
 /* ============ HERO SECTION ============ */
 .jd-services-hero {
   padding: 100px 0 80px;
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(0, 212, 255, 0.03));
-  border-bottom: 1px solid rgba(13, 110, 253, 0.1);
   
   @media (max-width: 768px) {
     padding: 70px 0 60px;
@@ -18,13 +16,13 @@
   h1 {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     line-height: 1.2;
-    color: #1e293b;
+    color: #f3f8ff;
     margin-bottom: 20px;
   }
   
   .lead {
     font-size: 1.15rem;
-    color: var(--jd-text-light);
+    color: #c9d5f1;
   }
   
   @media (max-width: 768px) {
@@ -40,20 +38,20 @@
   
   h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
-    color: #1e293b;
+    color: #eef4ff;
     margin-bottom: 12px;
   }
   
   p {
-    color: var(--jd-text-light);
+    color: #acb9d8;
     font-size: 1rem;
   }
 }
 
 /* ============ INDUSTRY EXPERIENCE ============ */
 .industry-card {
-  background: white;
-  border: 1px solid var(--jd-border);
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: var(--br-lg);
   padding: 32px 24px;
   text-align: center;
@@ -75,7 +73,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0d6efd, #00d4ff);
+    background: var(--jd-gradient);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -83,7 +81,7 @@
   
   &:hover {
     border-color: var(--jd-primary);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 36px rgba(2, 6, 16, 0.4);
     transform: translateY(-8px);
     
     &::before {
@@ -92,7 +90,7 @@
     
     i {
       transform: scale(1.2) rotate(10deg);
-      color: #00d4ff;
+      color: var(--jd-primary-light);
     }
   }
   
@@ -104,75 +102,16 @@
   
   span {
     font-weight: 600;
-    color: #1e293b;
+    color: #e6eeff;
     font-size: 0.95rem;
   }
 }
 
-/* ============ TECHNOLOGY EXPERTISE ============ */
-.tech-category-group {
-  background: white;
-  border-radius: var(--br-lg);
-  padding: 32px;
-  border: 1px solid var(--jd-border);
-  transition: all 0.3s ease;
-}
-
-.tech-category-group:hover {
-  border-color: var(--jd-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.category-header {
-  h4 {
-    color: #1e293b;
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-  
-  p {
-    color: var(--jd-text-light);
-    font-size: 0.95rem;
-    margin: 0;
-  }
-}
-
-.tech-item {
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.08), rgba(0, 212, 255, 0.05));
-  border: 1px solid rgba(13, 110, 253, 0.15);
-  border-radius: var(--br-md);
-  padding: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    background: linear-gradient(135deg, #0d6efd, #00d4ff);
-    border-color: transparent;
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.2);
-    
-    .tech-badge {
-      color: white;
-    }
-  }
-}
-
-.tech-badge {
-  display: inline-block;
-  color: var(--jd-primary);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
 
 /* ============ ENGAGEMENT MODELS ============ */
 .engagement-card {
-  background: white;
-  border: 1px solid var(--jd-border);
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: var(--br-lg);
   padding: 40px 32px;
   text-align: center;
@@ -190,7 +129,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #00d4ff);
+    background: var(--jd-gradient);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -198,7 +137,7 @@
   
   &:hover {
     border-color: var(--jd-primary);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 36px rgba(2, 6, 16, 0.4);
     transform: translateY(-8px);
     
     &::before {
@@ -206,7 +145,7 @@
     }
     
     .engagement-icon {
-      background: linear-gradient(135deg, #0d6efd, #00d4ff);
+      background: var(--jd-gradient);
       color: white;
       transform: scale(1.15);
     }
@@ -219,7 +158,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(13, 110, 253, 0.12);
+  background: rgba(239, 108, 66, 0.14);
   border-radius: var(--br-lg);
   font-size: 2rem;
   color: var(--jd-primary);
@@ -228,13 +167,13 @@
 }
 
 .engagement-card h4 {
-  color: #1e293b;
+  color: #eef4ff;
   font-size: 1.25rem;
   margin-bottom: 16px;
 }
 
 .engagement-card p {
-  color: var(--jd-text-light);
+  color: #acb9d8;
   font-size: 0.95rem;
   line-height: 1.8;
   margin-bottom: 20px;
@@ -251,8 +190,8 @@
 
 .feature-tag {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(0, 212, 255, 0.08));
-  color: var(--jd-primary);
+  background: rgba(239, 108, 66, 0.14);
+  color: #ffd1c2;
   padding: 6px 12px;
   border-radius: var(--br-md);
   font-size: 0.8rem;
@@ -260,15 +199,15 @@
   transition: all 0.3s ease;
   
   &:hover {
-    background: linear-gradient(135deg, #0d6efd, #00d4ff);
+    background: var(--jd-gradient);
     color: white;
   }
 }
 
 /* ============ SERVICE CARDS ============ */
 .service-card {
-  background: white;
-  border: 1px solid var(--jd-border);
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: var(--br-lg);
   padding: 32px 24px;
   transition: all 0.3s ease;
@@ -285,7 +224,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0d6efd, #00d4ff);
+    background: var(--jd-gradient);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -293,7 +232,7 @@
   
   &:hover {
     border-color: var(--jd-primary);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 36px rgba(2, 6, 16, 0.4);
     transform: translateY(-8px);
     
     &::before {
@@ -312,7 +251,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.12), rgba(0, 212, 255, 0.08));
+  background: rgba(239, 108, 66, 0.14);
   border-radius: var(--br-md);
   font-size: 1.8rem;
   color: var(--jd-primary);
@@ -322,12 +261,12 @@
 
 .service-card h4 {
   font-size: 1.25rem;
-  color: #1e293b;
+  color: #eef4ff;
   margin-bottom: 12px;
 }
 
 .service-card > p {
-  color: var(--jd-text-light);
+  color: #acb9d8;
   font-size: 0.95rem;
   margin-bottom: 20px;
   flex-grow: 1;
@@ -350,6 +289,7 @@
   
   &:hover {
     gap: 12px;
+    color: #ffd1c2;
     
     i {
       transform: translateX(4px);
@@ -358,32 +298,6 @@
 }
 
 /* ============ CTA SECTION ============ */
-.bg-dark {
-  background: linear-gradient(135deg, var(--jd-dark) 0%, var(--jd-darker) 100%);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(13, 110, 253, 0.15), transparent);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  
-  h3 {
-    color: white;
-  }
-  
-  .text-white-50 {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
   .jd-services-hero {

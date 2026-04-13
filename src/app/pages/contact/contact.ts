@@ -21,6 +21,8 @@ export class ContactComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     phone: [''],
+    company: [''],
+    requirement: ['', [Validators.required]],
     message: ['', [Validators.required, Validators.minLength(10)]],
   });
 

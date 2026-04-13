@@ -1,0 +1,51 @@
+<div class="component-container">
+  <div class="component-header">
+    <h2>⚙️ Settings & Feature Flags</h2>
+  </div>
+
+  <div class="settings-content">
+    <!-- Feature Flags Section -->
+    <div class="settings-section">
+      <h3>Administrative Features</h3>
+      <p class="section-description">Enable or disable admin panel features</p>
+
+      <div *ngFor="let flag of ['adminPanel', 'portfolioManagement', 'servicesManagement', 'teamManagement', 'testimonialManagement', 'blogManagement']" class="feature-flag">
+        <div class="flag-info">
+          <label>{{ flag | titlecase }}</label>
+          <p class="flag-description">Enable management of {{ flag.toLowerCase() }}</p>
+        </div>
+        <div class="toggle-switch">
+          <input type="checkbox" [id]="flag" [checked]="featureFlags[flag]" (change)="toggleFeature(flag)" class="toggle-input" />
+          <label [for]="flag" class="toggle-label"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="settings-section">
+      <h3>Statistics</h3>
+      <div class="stats-summary">
+        <div class="stat">
+          <span class="stat-label">Portfolio Items:</span>
+          <span class="stat-value">{{ portfolioCount }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Services:</span>
+          <span class="stat-value">{{ servicesCount }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Team Members:</span>
+          <span class="stat-value">{{ teamCount }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Testimonials:</span>
+          <span class="stat-value">{{ testimonialsCount }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Blog Posts:</span>
+          <span class="stat-value">{{ blogCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

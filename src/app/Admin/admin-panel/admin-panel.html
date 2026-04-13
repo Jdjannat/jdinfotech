@@ -1,0 +1,54 @@
+
+<div class="admin-panel-container">
+  
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Menu</h3>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-speedometer2 nav-icon"></i>
+        <span class="nav-label">Dashboard</span>
+      </a>
+
+      <a routerLink="/admin/portfolio" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-image nav-icon"></i>
+        <span class="nav-label">Portfolio</span>
+      </a>
+
+      <a routerLink="/admin/services" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-gear nav-icon"></i>
+        <span class="nav-label">Services</span>
+      </a>
+
+      <a routerLink="/admin/team" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-people nav-icon"></i>
+        <span class="nav-label">Team</span>
+      </a>
+
+      <a routerLink="/admin/testimonials" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-star nav-icon"></i>
+        <span class="nav-label">Testimonials</span>
+      </a>
+
+      <a routerLink="/admin/blog" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-pencil-square nav-icon"></i>
+        <span class="nav-label">Blog</span>
+      </a>
+
+      <a routerLink="/admin/settings" routerLinkActive="active" class="nav-button">
+        <i class="bi bi-sliders nav-icon"></i>
+        <span class="nav-label">Settings</span>
+      </a>
+
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <div class="admin-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="component-container">
+  <div class="component-header">
+    <h2>📝 Blog Posts Management</h2>
+    <button class="btn-primary" (click)="showForm = !showForm">
+      {{ showForm ? 'Cancel' : '+ Add Blog Post' }}
+    </button>
+  </div>
+
+  <!-- Form -->
+  <form *ngIf="showForm" class="form-container">
+    <input type="text" placeholder="Post Title" [(ngModel)]="formData.title" name="title" class="form-input" />
+    <textarea placeholder="Excerpt" [(ngModel)]="formData.excerpt" name="excerpt" class="form-input"></textarea>
+    <textarea placeholder="Full Content" [(ngModel)]="formData.content" name="content" class="form-input" style="min-height: 150px"></textarea>
+    <input type="text" placeholder="Author" [(ngModel)]="formData.author" name="author" class="form-input" />
+    <input type="text" placeholder="Category" [(ngModel)]="formData.category" name="category" class="form-input" />
+    <input type="text" placeholder="Tags (comma separated)" name="tags" class="form-input"
+      (change)="onTagsChange($any($event.target).value)" />
+    <input type="text" placeholder="Featured Image URL" [(ngModel)]="formData.imageUrl" name="imageUrl" class="form-input" />
+    <button type="button" class="btn-success" (click)="formData.id ? savePost() : addPost()">
+      {{ formData.id ? 'Update' : 'Add' }} Blog Post
+    </button>
+  </form>
+
+  <!-- List -->
+  <div class="content-grid blog-grid">
+    <div *ngFor="let post of blogPosts" class="content-card blog-card">
+      <img [src]="post.imageUrl" alt="{{ post.title }}" class="card-image" />
+      <div class="card-content">
+        <h3>{{ post.title }}</h3>
+        <p class="excerpt">{{ post.excerpt }}</p>
+        <div class="blog-meta">
+          <span class="badge">{{ post.category }}</span>
+          <span class="date">{{ post.publishDate | date: 'MMM dd, yyyy' }}</span>
+        </div>
+        <div class="card-actions">
+          <button class="btn-edit" (click)="editPost(post)">Edit</button>
+          <button class="btn-delete" (click)="deletePost(post.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

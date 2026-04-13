@@ -1,0 +1,72 @@
+<div class="login-container">
+  <div class="login-card">
+    <!-- Logo/Header -->
+    <div class="login-header">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" *ngIf="errorMessage">
+      <span class="error-icon">⚠️</span>
+      {{ errorMessage }}
+    </div>
+
+    <!-- Login Form -->
+    <form class="login-form" (ngSubmit)="login()">
+      <!-- Email or Username Input -->
+      <div class="form-group">
+        <label for="emailOrUsername" class="form-label">Email or Username</label>
+        <input
+          type="text"
+          id="emailOrUsername"
+          class="form-input"
+          [(ngModel)]="emailOrUsername"
+          name="emailOrUsername"
+          placeholder="Enter your email or username"
+          (keypress)="onKeyPress($event)"
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-input"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Enter your password"
+          (keypress)="onKeyPress($event)"
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Login Button -->
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="isLoading"
+        [class.loading]="isLoading"
+      >
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading" class="spinner"></span>
+      </button>
+    </form>
+
+    <!-- Demo Credentials -->
+    <div class="demo-credentials">
+      <p class="demo-title">Demo Credentials:</p>
+      <ul class="credentials-list">
+        <li><strong>Email:</strong> admin@jdinfotech.com | <strong>Password:</strong> admin123</li>
+        <li><strong>Username:</strong> admin | <strong>Password:</strong> admin123</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="decoration-circle circle-1"></div>
+  <div class="decoration-circle circle-2"></div>
+</div>

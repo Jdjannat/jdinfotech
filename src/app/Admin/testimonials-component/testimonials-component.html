@@ -1,0 +1,39 @@
+<div class="component-container">
+  <div class="component-header">
+    <h2>⭐ Testimonials Management</h2>
+    <button class="btn-primary" (click)="showForm = !showForm">
+      {{ showForm ? 'Cancel' : '+ Add Testimonial' }}
+    </button>
+  </div>
+
+  <!-- Form -->
+  <form *ngIf="showForm" class="form-container">
+    <input type="text" placeholder="Client Name" [(ngModel)]="formData.clientName" name="clientName" class="form-input" />
+    <input type="text" placeholder="Company" [(ngModel)]="formData.company" name="company" class="form-input" />
+    <textarea placeholder="Comment" [(ngModel)]="formData.comment" name="comment" class="form-input"></textarea>
+    <select [(ngModel)]="formData.rating" name="rating" class="form-input">
+      <option [value]="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+      <option [value]="4">⭐⭐⭐⭐ (4 Stars)</option>
+      <option [value]="3">⭐⭐⭐ (3 Stars)</option>
+    </select>
+    <input type="text" placeholder="Image URL" [(ngModel)]="formData.imageUrl" name="imageUrl" class="form-input" />
+    <button type="button" class="btn-success" (click)="formData.id ? saveTestimonial() : addTestimonial()">
+      {{ formData.id ? 'Update' : 'Add' }} Testimonial
+    </button>
+  </form>
+
+  <!-- List -->
+  <div class="content-grid">
+    <div *ngFor="let testimonial of testimonials" class="content-card testimonial-card">
+      <img [src]="testimonial.imageUrl" alt="{{ testimonial.clientName }}" class="card-image" />
+      <p class="stars">{{ '⭐'.repeat(testimonial.rating) }}</p>
+      <p class="comment">{{ testimonial.comment }}</p>
+      <h4>{{ testimonial.clientName }}</h4>
+      <p class="company">{{ testimonial.company }}</p>
+      <div class="card-actions">
+        <button class="btn-edit" (click)="editTestimonial(testimonial)">Edit</button>
+        <button class="btn-delete" (click)="deleteTestimonial(testimonial.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
