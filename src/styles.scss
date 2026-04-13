@@ -108,10 +108,13 @@ p {
     padding: 60px 0;
   }
 }
-
 .section-title {
   max-width: 720px;
-  // margin: 0 auto var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+.section-title-case {
+  max-width: 720px;
+  margin: 0 auto var(--spacing-xl);
   display: block;
   width: 100%;
 }
