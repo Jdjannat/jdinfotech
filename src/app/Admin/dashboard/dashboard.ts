@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 import { FeatureFlagService } from '../../services/feature-flag.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class Dashboard implements OnInit {
   currentDate: string = '';
   showAdminPanel = false;
   activePanel: 'dashboard' | 'portfolio' | 'services' | 'team' | 'testimonials' | 'blog' | 'settings' = 'dashboard';
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private router: Router, private featureFlagService: FeatureFlagService) {}
 
@@ -30,8 +32,13 @@ export class Dashboard implements OnInit {
   }
 
   loadUserInfo(): void {
-    const user = localStorage.getItem('auth_user');
-    this.currentUser = user || 'User';
+    if (isPlatformBrowser(this.platformId)) {
+      const user = localStorage.getItem('auth_user');
+      this.currentUser = user || 'User';
+      return;
+    }
+
+    this.currentUser = 'User';
   }
 
   updateDateTime(): void {
@@ -50,8 +57,11 @@ export class Dashboard implements OnInit {
   }
 
   logout(): void {
-    localStorage.removeItem('auth_user');
-    this.router.navigate(['/admin']);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('auth_user');
+      localStorage.removeItem('auth_token');
+    }
+    this.router.navigate(['/']);
   }
 
   getAdminTab(): 'portfolio' | 'services' | 'team' | 'testimonials' | 'blog' | 'settings' {

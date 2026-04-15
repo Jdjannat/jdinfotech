@@ -14,6 +14,7 @@ import { TeamComponent } from './Admin/team-component/team-component';
 import { SettingsComponent } from './Admin/settings-component/settings-component';
 import { BlogComponent } from './Admin/blog-component/blog-component';
 import { PortfolioComponentComp } from './Admin/portfoliocomponent/portfoliocomponent';
+import { adminAuthGuard, adminChildAuthGuard, loginGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -29,12 +30,14 @@ export const routes: Routes = [
   },
 
   // Login
-  { path: 'admin/login', component: Login },
+  { path: 'login', component: Login, canActivate: [loginGuard] },
 
   // Admin Panel
   {
     path: 'admin',
     component: AdminPanelComponent,
+    canActivate: [adminAuthGuard],
+    canActivateChild: [adminChildAuthGuard],
     children: [
       { path: 'dashboard', component: Dashboard },
       { path: 'portfolio', component: PortfolioComponentComp },
