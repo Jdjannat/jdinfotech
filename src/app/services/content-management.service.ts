@@ -323,7 +323,7 @@ export class ContentManagementService {
           position: 'Senior Developer',
           bio: 'Expert in full-stack development',
           imageUrl: 'https://via.placeholder.com/200x200?text=John',
-          email: 'john@jdinfotech.com',
+          email: 'john@skygalaxyinfotech.com',
         },
       ]);
       this.setInStorage('teamMembers', JSON.stringify(this.teamMembers.value));

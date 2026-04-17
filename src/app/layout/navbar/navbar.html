@@ -3,21 +3,14 @@
     <!-- Logo -->
     <div class="navbar-brand-wrapper">
       <a class="navbar-brand" routerLink="/">
-        <span class="brand-icon">Sg</span>
+        <span class="brand-icon">SG</span>
         <span class="brand-text">Infotech</span>
       </a>
     </div>
 
     <!-- Mobile Toggle -->
-    <button 
-      class="navbar-toggler collapsed" 
-      #navToggler
-      type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#nav" 
-      aria-controls="nav" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" #navToggler type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+      aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
       <span></span>
       <span></span>
       <span></span>
@@ -27,7 +20,8 @@
     <div id="nav" #navMenu class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenuOnMobile()">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            (click)="closeMenuOnMobile()">
             <i class="bi bi-house-door"></i> Home
           </a>
         </li>
@@ -49,7 +43,11 @@
             <i class="bi bi-star"></i> Case Studies
           </a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/careers" routerLinkActive="active" (click)="closeMenuOnMobile()">
+            <i class="bi bi-briefcase"></i>Career
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link nav-cta" routerLink="/contact" (click)="closeMenuOnMobile()">
             <i class="bi bi-telephone"></i> Talk to us
