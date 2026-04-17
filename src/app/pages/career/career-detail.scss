@@ -1,0 +1,310 @@
+.jd-contact-hero {
+  padding: 98px 0 78px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: #f4f8ff;
+}
+
+.hero-content .lead {
+  font-size: 1.1rem;
+  color: #c9d5f1;
+  line-height: 1.6;
+}
+
+
+/* ============ CAREER DETAILS SECTION ============ */
+.career-details {
+  .row {
+    align-items: flex-start;
+  }
+  
+  @media (max-width: 992px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+}
+
+/* ============ CAREER INFO CARD ============ */
+.career-info-card {
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--br-lg);
+  padding: 32px;
+  box-shadow: 0 14px 28px rgba(2, 6, 16, 0.3);
+  
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.info-section {
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  h4 {
+    color: #eef4ff;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    color: #c9d5f1;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+}
+
+/* ============ ROLE META ============ */
+.role-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: rgba(239, 108, 66, 0.08);
+  border-radius: var(--br-md);
+  border-left: 3px solid var(--jd-primary);
+  
+  .label {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  
+  .value {
+    color: #dfe8ff;
+    font-weight: 500;
+  }
+}
+
+.job-description {
+  color: #c9d5f1;
+  line-height: 1.9;
+  
+  p {
+    margin-bottom: 12px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  ul, ol {
+    color: #c9d5f1;
+    margin-left: 20px;
+    margin-bottom: 12px;
+    
+    li {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+/* ============ APPLY FORM CARD ============ */
+.apply-form-card {
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--br-lg);
+  padding: 32px;
+  box-shadow: 0 14px 28px rgba(2, 6, 16, 0.3);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  
+  @media (max-width: 768px) {
+    padding: 24px;
+    position: static;
+  }
+  
+  h4 {
+    color: #eef4ff;
+  }
+}
+
+/* ============ FORM CONTROLS ============ */
+.form-label {
+  color: #dfe8ff;
+  font-weight: 500;
+  margin-bottom: 8px;
+  
+  .text-danger {
+    color: #ef6c42;
+  }
+}
+
+.form-control {
+  background: #0f1419;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #dfe8ff;
+  
+  &::placeholder {
+    color: #64748b;
+  }
+  
+  &:focus {
+    background: #0f1419;
+    border-color: var(--jd-primary);
+    color: #dfe8ff;
+    box-shadow: 0 0 0 0.2rem rgba(239, 108, 66, 0.25);
+  }
+  
+  &:disabled {
+    background: rgba(15, 20, 25, 0.5);
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  
+  &.is-invalid {
+    border-color: #ef6c42;
+    
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(239, 108, 66, 0.25);
+    }
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+small {
+  display: block;
+  margin-top: 6px;
+}
+
+/* ============ FILE UPLOAD ============ */
+.file-upload-wrapper {
+  position: relative;
+  
+  input[type="file"] {
+    cursor: pointer;
+    
+    &::file-selector-button {
+      background: var(--jd-primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--br-md);
+      cursor: pointer;
+      font-weight: 500;
+      margin-right: 8px;
+      
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+/* ============ BUTTONS ============ */
+.btn-primary {
+  background: var(--jd-gradient);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(239, 108, 66, 0.3);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.spinner-border {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.25em;
+}
+
+/* ============ ALERTS ============ */
+.alert {
+  background: rgba(15, 20, 25, 0.6);
+  border: 1px solid;
+  border-radius: var(--br-md);
+  padding: 16px;
+  font-size: 0.95rem;
+  
+  &.alert-success {
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #86efac;
+    
+    i {
+      color: #22c55e;
+    }
+  }
+  
+  &.alert-danger {
+    border-color: rgba(239, 108, 66, 0.3);
+    color: #fca5a5;
+    
+    i {
+      color: #ef4444;
+    }
+  }
+}
+
+/* ============ RELATED SECTION ============ */
+.bg-light {
+  background: #0f1419;
+  
+  .section-title {
+    h2 {
+      color: #eef4ff;
+    }
+    
+    p {
+      color: #acb9d8;
+    }
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .apply-form-card {
+    margin-top: 32px;
+  }
+  
+  .role-meta {
+    gap: 12px;
+  }
+  
+  .meta-item {
+    padding: 12px;
+  }
+}

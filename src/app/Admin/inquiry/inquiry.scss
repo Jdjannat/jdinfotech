@@ -1,0 +1,63 @@
+@use '../shared-admin.scss';
+ h3{
+    color: black !important;
+ }
+.inquiry-search-input {
+	background-color: #ffffff !important;
+	color: #1f2a44 !important;
+	caret-color: #1f2a44;
+
+	&::placeholder {
+		color: #7a819a;
+	}
+
+	&:focus {
+		background-color: #ffffff !important;
+		color: #1f2a44 !important;
+	}
+}
+
+.modal {
+  position: fixed !important;
+  z-index: 99999 !important;
+}
+
+.modal-backdrop {
+  z-index: 99998 !important;
+}
+
+.form-control{
+    background-color: #ffffff !important;
+    color: #1f2a44 !important;
+}
+
+select.form-control {
+	appearance: auto !important;
+	cursor: pointer !important;
+	padding-right: 24px !important;
+	background-image: none !important;
+	background-repeat: no-repeat !important;
+	-webkit-appearance: auto !important;
+	-moz-appearance: auto !important;
+}
+
+select.form-control::-ms-expand {
+	display: block !important;
+}
+
+/* Ensure select shows as dropdown in modal */
+.modal select.form-control {
+	display: block !important;
+	min-height: 38px;
+	line-height: 1.5;
+}
+
+.modal select.form-control option {
+	background-color: #ffffff;
+	color: #1f2a44;
+	padding: 8px 4px;
+}
+
+.form-label{
+    color: black !important;
+}

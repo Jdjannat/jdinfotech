@@ -1,0 +1,231 @@
+
+<section class="jd-contact-hero">
+  <div class="container">
+    <div class="hero-content text-center">
+ 
+      @if (career(); as c) {
+        <h1 class="fw-bold mb-3">{{ c.title }}</h1>
+        <p class="lead mb-0">{{ c.department }} • {{ c.location }} • {{ c.employmentType }}</p>
+      }
+     
+    </div>
+  </div>
+</section>
+
+<!-- CAREER DETAILS SECTION -->
+<section class="section-pad career-details">
+  <div class="container">
+    @if (isLoading()) {
+      <div class="text-center py-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    } @else if (errorMessage()) {
+      <div class="alert alert-danger">{{ errorMessage() }}</div>
+    } @else if (career(); as career) {
+      <div class="row g-5">
+        <!-- LEFT COLUMN: CAREER DETAILS -->
+        <div class="col-lg-7">
+          <div class="career-info-card">
+            <div class="info-section mb-4">
+              <h4 class="fw-bold mb-3">About This Role</h4>
+              <div class="role-meta">
+                <div class="meta-item">
+                  <span class="label">Employment Type</span>
+                  <span class="value">{{ career.employmentType }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Department</span>
+                  <span class="value">{{ career.department }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Location</span>
+                  <span class="value">{{ career.location }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Experience Required</span>
+                  <span class="value">{{ career.experience }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Open Positions</span>
+                  <span class="value">{{ career.openings }}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="label">Status</span>
+                  <span class="badge text-bg-success">{{ career.status }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h4 class="fw-bold mb-3">Job Description</h4>
+              <div class="job-description">
+                <p>{{ career.description }}</p>
+              </div>
+            </div>
+
+            @if (career.shortDescription) {
+              <div class="info-section">
+                <h4 class="fw-bold mb-3">Summary</h4>
+                <p class="text-muted">{{ career.shortDescription }}</p>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: APPLICATION FORM -->
+        <div class="col-lg-5">
+          <div class="apply-form-card">
+            <h4 class="fw-bold mb-4">Apply Now</h4>
+
+            @if (successMessage()) {
+              <div class="alert alert-success mb-4">
+                <i class="bi bi-check-circle me-2"></i>{{ successMessage() }}
+              </div>
+            }
+
+            @if (errorMessage()) {
+              <div class="alert alert-danger mb-4">
+                <i class="bi bi-exclamation-circle me-2"></i>{{ errorMessage() }}
+              </div>
+            }
+
+            <form [formGroup]="form" (ngSubmit)="submitApplication()">
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="name"
+                  placeholder="Your full name"
+                  [class.is-invalid]="form.get('name')?.invalid && form.get('name')?.touched" />
+                @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+                  <small class="text-danger">Name is required</small>
+                }
+                @if (form.get('name')?.hasError('minlength') && form.get('name')?.touched) {
+                  <small class="text-danger">Name must be at least 2 characters</small>
+                }
+              </div>
+
+              <!-- Email Field -->
+              <div class="mb-3">
+                <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                <input
+                  class="form-control"
+                  type="email"
+                  formControlName="email"
+                  placeholder="your.email@example.com"
+                  [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched" />
+                @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+                  <small class="text-danger">Email is required</small>
+                }
+                @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+                  <small class="text-danger">Please enter a valid email</small>
+                }
+              </div>
+
+              <!-- Phone Field -->
+              <div class="mb-3">
+                <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                <input
+                  class="form-control"
+                  type="tel"
+                  formControlName="phone"
+                  placeholder="+1 (555) 123-4567"
+                  [class.is-invalid]="form.get('phone')?.invalid && form.get('phone')?.touched" />
+                @if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+                  <small class="text-danger">Phone number is required</small>
+                }
+                @if (form.get('phone')?.hasError('invalidPhone') && form.get('phone')?.touched) {
+                  <small class="text-danger">Please enter a valid phone number</small>
+                }
+              </div>
+
+              <!-- Job Title (Read-only) -->
+              <div class="mb-3">
+                <label class="form-label">Job Title</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="jobTitle()"
+                  disabled />
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-3">
+                <label class="form-label">Cover Letter / Message</label>
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  formControlName="message"
+                  placeholder="Tell us why you're interested in this position..."
+                  [class.is-invalid]="form.get('message')?.invalid && form.get('message')?.touched"></textarea>
+                @if (form.get('message')?.hasError('minlength') && form.get('message')?.touched) {
+                  <small class="text-danger">Message must be at least 10 characters</small>
+                }
+              </div>
+
+              <!-- File Upload -->
+              <div class="mb-4">
+                <label class="form-label">Upload Resume <span class="text-danger">*</span></label>
+                <div class="file-upload-wrapper">
+                  <input
+                    class="form-control"
+                    type="file"
+                    accept=".pdf,.doc,.docx,.txt"
+                    (change)="onFileSelected($event)"
+                    [class.is-invalid]="fileError()" />
+                  <small class="text-muted d-block mt-1">
+                    Supported formats: PDF, DOC, DOCX, TXT (Max 5MB)
+                  </small>
+                  @if (fileError()) {
+                    <small class="text-danger">{{ fileError() }}</small>
+                  }
+                  @if (selectedFile(); as file) {
+                    <small class="text-success d-block mt-1">
+                      <i class="bi bi-check-circle me-1"></i>Selected: {{ file.name }}
+                    </small>
+                  }
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                class="btn btn-primary w-100 btn-lg"
+                type="submit"
+                [disabled]="form.invalid || isSubmitting()">
+                @if (isSubmitting()) {
+                  <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Submitting...
+                } @else {
+                  <i class="bi bi-send me-2"></i>Submit Application
+                }
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- RELATED OPENINGS SECTION -->
+@if (!isLoading() && !errorMessage() && career(); as c) {
+  <section class="section-pad bg-light">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <h2 class="fw-bold mb-2">Other Openings</h2>
+        <p class="text-muted mb-0">Explore other positions that might interest you.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Related openings would go here if implemented -->
+        <div class="col-12 text-center py-5 text-muted">
+          <p>No other openings at this time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+}

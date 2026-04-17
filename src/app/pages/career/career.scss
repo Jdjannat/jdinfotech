@@ -1,0 +1,256 @@
+
+.jd-career-hero {
+  padding: 100px 0 80px;
+  
+  @media (max-width: 768px) {
+    padding: 70px 0 60px;
+  }
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+  
+  h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    color: #f3f8ff;
+    margin-bottom: 20px;
+  }
+  
+  .lead {
+    font-size: 1.15rem;
+    color: #c9d5f1;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/* ============ SECTION TITLE ============ */
+.section-title {
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #eef4ff;
+    margin-bottom: 12px;
+  }
+  
+  p {
+    color: #acb9d8;
+    font-size: 1rem;
+  }
+}
+
+/* ============ CAREER OPENINGS ============ */
+.career-openings {
+  .row {
+    margin-bottom: 20px;
+  }
+}
+
+/* ============ CAREER CARD ============ */
+.career-card {
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--br-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 14px 28px rgba(2, 6, 16, 0.3);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--jd-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    border-color: var(--jd-primary);
+    box-shadow: 0 20px 36px rgba(2, 6, 16, 0.4);
+    transform: translateY(-8px);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.career-card .card-header {
+  padding: 24px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  
+  h5 {
+    color: #eef4ff;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+  }
+}
+
+.career-card .card-body {
+  padding: 24px;
+  flex-grow: 1;
+  
+  .text-muted {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  > div {
+    margin-bottom: 16px;
+    
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    .fw-semibold {
+      color: #dfe8ff;
+      font-size: 0.95rem;
+    }
+  }
+  
+  p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.career-card .card-footer {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* ============ BENEFITS SECTION ============ */
+.career-benefits {
+  background: #0f1419;
+  
+  .section-title {
+    h2 {
+      color: #f3f8ff;
+    }
+    
+    p {
+      color: #acb9d8;
+    }
+  }
+}
+
+/* ============ BENEFIT CARD ============ */
+.benefit-card {
+  background: #171e30;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--br-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--jd-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    border-color: var(--jd-primary);
+    box-shadow: 0 20px 36px rgba(2, 6, 16, 0.4);
+    transform: translateY(-8px);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    .benefit-icon {
+      background: var(--jd-gradient);
+      color: white;
+      transform: scale(1.15);
+    }
+  }
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 108, 66, 0.14);
+  border-radius: var(--br-lg);
+  font-size: 1.8rem;
+  color: var(--jd-primary);
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.benefit-card h5 {
+  color: #eef4ff;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.benefit-card p {
+  color: #acb9d8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============ CTA SECTION ============ */
+.cta-soft {
+  background: linear-gradient(135deg, rgba(239, 108, 66, 0.2) 0%, rgba(96, 72, 239, 0.1) 100%);
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  
+  h3 {
+    color: #f3f8ff;
+    margin-bottom: 8px;
+  }
+  
+  .text-white-50 {
+    color: rgba(243, 248, 255, 0.5);
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .career-card .card-header {
+    padding: 16px;
+  }
+  
+  .career-card .card-body {
+    padding: 16px;
+  }
+  
+  .career-card .card-footer {
+    padding: 12px 16px;
+  }
+  
+  .benefit-card {
+    padding: 24px 16px;
+  }
+}

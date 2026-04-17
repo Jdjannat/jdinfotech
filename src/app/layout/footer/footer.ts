@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
 })
 export class Footer {
   year = new Date().getFullYear();
-  brand = 'JD Infotech';
+  brand = 'Skygalaxy Infotech';
 }

@@ -1,0 +1,148 @@
+<!-- HERO SECTION -->
+<section class="jd-career-hero">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1 class="fw-bold mb-3">Join Our Growing Team</h1>
+      <p class="lead mb-0">
+        Build innovative solutions with a talented team. We value collaboration, learning, and delivering excellence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER OPENINGS SECTION -->
+<section class="section-pad career-openings">
+  <div class="container">
+    <div class="section-title mb-4">
+      <h2 class="fw-bold mb-2">Current Openings</h2>
+      <p class="text-muted mb-0">Explore available positions and grow your career with us.</p>
+    </div>
+
+    @if (totalOpenings() > 0) {
+      <div class="row g-4">
+        @for (career of openCareers(); track trackByCareer($index, career)) {
+          <div class="col-md-6 col-lg-4">
+            <div class="career-card h-100">
+              <div class="card-header">
+                <h5 class="fw-semibold mb-2">{{ career.title }}</h5>
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <span class="badge text-bg-primary">{{ career.employmentType }}</span>
+                  <span class="badge text-bg-success">{{ career.status }}</span>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div class="mb-3">
+                  <div class="text-muted small mb-1"><i class="bi bi-building"></i> Department</div>
+                  <div class="fw-semibold">{{ career.department }}</div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="text-muted small mb-1"><i class="bi bi-geo-alt"></i> Location</div>
+                  <div class="fw-semibold">{{ career.location }}</div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="text-muted small mb-1"><i class="bi bi-briefcase"></i> Experience</div>
+                  <div class="fw-semibold">{{ career.experience }}</div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="text-muted small mb-1"><i class="bi bi-people"></i> Open Positions</div>
+                  <div class="fw-semibold">{{ career.openings }}</div>
+                </div>
+
+                <p class="text-muted small">{{ career.description | slice:0:100 }}...</p>
+              </div>
+
+              <div class="card-footer border-0 bg-white">
+                <a
+                  [routerLink]="['/careers', career.id]"
+                  class="btn btn-primary w-100">
+                  View Details & Apply
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="alert alert-info text-center py-5">
+        <i class="bi bi-info-circle me-2"></i>
+        <strong>No current openings.</strong> Check back soon for new opportunities!
+      </div>
+    }
+  </div>
+</section>
+
+<!-- WHY JOIN US SECTION -->
+<section class="section-pad career-benefits">
+  <div class="container">
+    <div class="section-title-case text-center mb-5">
+      <h2 class="fw-bold mb-2">Why Join Skygalaxy Infotech?</h2>
+      <p class="text-muted mb-0">We believe in fostering a culture of innovation, collaboration, and continuous growth.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-star"></i>
+          </div>
+          <h5 class="fw-semibold">Innovative Projects</h5>
+          <p class="text-muted mb-0">Work on cutting-edge technology solutions and real-world business challenges.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h5 class="fw-semibold">Great Team</h5>
+          <p class="text-muted mb-0">Collaborate with talented professionals dedicated to excellence and growth.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-book"></i>
+          </div>
+          <h5 class="fw-semibold">Learning & Development</h5>
+          <p class="text-muted mb-0">Continuous training, mentorship, and opportunities to expand your skillset.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <h5 class="fw-semibold">Professional Growth</h5>
+          <p class="text-muted mb-0">Clear career progression and opportunities to take on challenging responsibilities.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-clock"></i>
+          </div>
+          <h5 class="fw-semibold">Work-Life Balance</h5>
+          <p class="text-muted mb-0">Flexible working arrangements and a supportive environment.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="bi bi-award"></i>
+          </div>
+          <h5 class="fw-semibold">Competitive Benefits</h5>
+          <p class="text-muted mb-0">Comprehensive benefits package and competitive compensation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

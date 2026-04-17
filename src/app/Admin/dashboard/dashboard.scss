@@ -5,156 +5,6 @@
   background-color: #f5f6fa;
 }
 
-// Admin Header
-.admin-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-
-  .header-content {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    font-weight: 500;
-
-    .user-icon {
-      font-size: 20px;
-    }
-
-    .user-name {
-      max-width: 150px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-
-  .logout-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
-}
-
-// Admin Panel Layout
-.admin-panel-layout {
-  display: flex;
-  flex: 1;
-  gap: 0;
-}
-
-// Sidebar Styling
-.admin-sidebar {
-  width: 260px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  position: sticky;
-  top: 0;
-  height: calc(100vh - 80px);
-  overflow-y: auto;
-  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
-
-  .sidebar-header {
-    padding: 25px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-    h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      color: white;
-      letter-spacing: 0.5px;
-    }
-  }
-
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 15px 0;
-
-    .nav-button {
-      padding: 15px 20px;
-      background: transparent;
-      border: none;
-      border-left: 4px solid transparent;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-
-      .nav-icon {
-        font-size: 20px;
-        min-width: 24px;
-      }
-
-      .nav-label {
-        flex: 1;
-      }
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-left-color: white;
-        transform: translateX(5px);
-      }
-
-      &.active {
-        background-color: rgba(255, 255, 255, 0.25);
-        border-left-color: white;
-        color: white;
-        font-weight: 600;
-        box-shadow: inset -2px 0 10px rgba(0, 0, 0, 0.1);
-      }
-    }
-  }
-}
-
 // Main Content Area
 .admin-content {
   flex: 1;
@@ -295,33 +145,11 @@
   }
 }
 
-.dashboard-footer {
-  background: white;
-  border-top: 1px solid #e0e0e0;
-  padding: 20px;
-  text-align: center;
-  color: #999;
-  font-size: 13px;
-  margin-top: auto;
-}
+
 
 // Responsive Design
 @media (max-width: 768px) {
-  .dashboard-header .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .dashboard-header .header-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .dashboard-main {
-    padding: 20px;
-    gap: 25px;
-  }
+  
 
   .welcome-section .welcome-card {
     padding: 25px;
@@ -338,15 +166,7 @@
 }
 
 @media (max-width: 480px) {
-  .dashboard-header .header-right {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .dashboard-header .logout-btn {
-    width: 100%;
-  }
-
+  
   .welcome-section .welcome-card h2 {
     font-size: 20px;
   }

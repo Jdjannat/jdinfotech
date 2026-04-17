@@ -11,7 +11,7 @@ export class Navbar {
   @ViewChild('navMenu') navMenu?: ElementRef<HTMLDivElement>;
   @ViewChild('navToggler') navToggler?: ElementRef<HTMLButtonElement>;
 
-  brand = 'JD Infotech';
+  brand = 'Skygalaxy Infotech';
 
   closeMenuOnMobile(): void {
     if (window.innerWidth > 991) {

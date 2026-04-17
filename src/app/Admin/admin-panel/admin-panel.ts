@@ -1,6 +1,7 @@
-import { Component,  } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-admin-panel',
@@ -10,5 +11,22 @@ import { RouterModule } from '@angular/router';
   styleUrl: './admin-panel.scss',
 })
 export class AdminPanelComponent  {
-  // Bootstrap icons can be used directly as classes from node_modules
+  currentUser = 'User';
+  private platformId = inject(PLATFORM_ID);
+  private router = inject(Router);
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.currentUser = localStorage.getItem('auth_user') || 'User';
+    }
+  }
+
+  logout(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('auth_user');
+      localStorage.removeItem('auth_token');
+    }
+
+    this.router.navigate(['/login']);
+  }
 }

@@ -1,0 +1,20 @@
+@use '../../shared-admin.scss';
+
+:host {
+  display: block;
+}
+
+.component-header h2,
+.form-label {
+  color: #1f2a44;
+}
+
+.card {
+  border-radius: 16px;
+  background:  white !important;
+}
+
+.form-control {
+  background-color: #ffffff !important;
+  color: #1f2a44 !important;
+}

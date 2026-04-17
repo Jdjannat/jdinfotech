@@ -1,5 +1,5 @@
 {
-  "name": "jd-infotech-portfolio",
+  "name": "skygalaxy-infotech",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:jd-infotech-portfolio": "node dist/jd-infotech-portfolio/server/server.mjs"
+    "serve:ssr:skygalaxy-infotech": "node dist/skygalaxy-infotech/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.2",
