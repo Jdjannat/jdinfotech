@@ -1,0 +1,62 @@
+<div class="container py-3">
+  <div class="component-header mb-4">
+    <h2 class="m-0">{{ pageTitle() }}</h2>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="alert alert-danger">{{ errorMessage() }}</div>
+  }
+
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+      <form [formGroup]="form" (ngSubmit)="saveCareer()">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Job Title</label>
+            <input class="form-control" formControlName="title" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Department</label>
+            <input class="form-control" formControlName="department" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input class="form-control" formControlName="location" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Employment Type</label>
+            <input class="form-control" formControlName="type" placeholder="Full Time / Contract / Remote" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Status</label>
+            <input class="form-control" formControlName="status" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Open Positions</label>
+            <input class="form-control" type="number" min="1" formControlName="openings" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Experience</label>
+            <input class="form-control" formControlName="experience" placeholder="2+ Years" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Full Description</label>
+            <textarea class="form-control" rows="6" formControlName="description"></textarea>
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-4">
+          <button class="btn btn-primary" type="submit">{{ submitLabel() }}</button>
+          <button class="btn btn-outline-secondary" type="button" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

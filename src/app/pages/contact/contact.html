@@ -18,7 +18,7 @@
       <!-- Left: Contact Information -->
       <div class="col-lg-5">
         <h2 class="fw-bold mb-4">Contact Information</h2>
-        
+
         <!-- Email Card -->
         <div class="card border-0 shadow-sm mb-3 contact-info-card">
           <div class="card-body">
@@ -29,7 +29,7 @@
               <h5 class="fw-bold mb-0">Email</h5>
             </div>
             <p class="text-muted mb-1">
-              <a href="mailto:hello@jdinfotech.com" class="text-decoration-none">hello@jdinfotech.com</a>
+              <a href="mailto:skygalaxyinfotech@gmail.com" class="text-decoration-none">skygalaxyinfotech@gmail.com</a>
             </p>
             <p class="text-muted small mb-0">We respond within 24 hours</p>
           </div>
@@ -47,7 +47,7 @@
             <p class="text-muted mb-1">
               <a href="tel:+916353799159" class="text-decoration-none">+91-6353799159</a>
             </p>
-            <p class="text-muted small mb-0">Mon–Sat, 9:00 AM – 6:00 PM</p>
+            <p class="text-muted small mb-0">Mon-Sat, 9:00 AM - 6:00 PM</p>
           </div>
         </div>
 
@@ -61,14 +61,14 @@
               <h5 class="fw-bold mb-0">Location</h5>
             </div>
             <p class="text-muted mb-1">
-              New York, USA (Remote Friendly)
+              Ahmedabad (Remote Friendly)
             </p>
             <p class="text-muted small mb-0">Open for global projects</p>
           </div>
         </div>
 
         <!-- Social Links -->
-        <div class="mt-5">
+        <!-- <div class="mt-5">
           <h5 class="fw-bold mb-3">Follow Us</h5>
           <div class="d-flex gap-2">
             <a href="#" class="btn btn-outline-primary btn-sm rounded-circle p-2" title="LinkedIn">
@@ -84,7 +84,7 @@
               <i class="bi bi-facebook"></i>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Right: Contact Form -->
@@ -109,10 +109,10 @@
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label fw-semibold">Full Name *</label>
-                  <input 
+                  <input
                     type="text"
-                    class="form-control" 
-                    formControlName="name" 
+                    class="form-control"
+                    formControlName="name"
                     placeholder="Your full name"
                   />
                   <div class="text-danger small mt-1" *ngIf="ctrl('name')?.touched && ctrl('name')?.invalid">
@@ -122,10 +122,10 @@
 
                 <div class="col-md-6">
                   <label class="form-label fw-semibold">Email Address *</label>
-                  <input 
+                  <input
                     type="email"
-                    class="form-control" 
-                    formControlName="email" 
+                    class="form-control"
+                    formControlName="email"
                     placeholder="your@email.com"
                   />
                   <div class="text-danger small mt-1" *ngIf="ctrl('email')?.touched && ctrl('email')?.invalid">
@@ -134,54 +134,40 @@
                 </div>
               </div>
 
-              <!-- Phone and Company Row -->
-              <div class="row g-3 mb-3">
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold">Phone Number</label>
-                  <input 
-                    type="tel"
-                    class="form-control" 
-                    formControlName="phone" 
-                    placeholder="+91 XXXX-XXXX-XXX"
-                  />
-                </div>
-
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold">Company Name</label>
-                  <input 
-                    type="text"
-                    class="form-control" 
-                    formControlName="company"
-                    placeholder="Your company name"
-                  />
+              <!-- Mobile Number -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Mobile Number *</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  formControlName="phone"
+                  placeholder="+12025550191"
+                />
+                <div class="text-danger small mt-1" *ngIf="ctrl('phone')?.touched && ctrl('phone')?.invalid">
+                  Enter a valid global mobile number (example: +12025550191).
                 </div>
               </div>
 
-              <!-- Requirement Dropdown -->
+              <!-- Requirement Input -->
               <div class="mb-3">
                 <label class="form-label fw-semibold">Requirement *</label>
-                <select class="form-select" formControlName="requirement">
-                  <option value="">Select your requirement</option>
-                  <option value="web">Web Development</option>
-                  <option value="mobile">Mobile App Development</option>
-                  <option value="ecommerce">eCommerce Solutions</option>
-                  <option value="enterprise">Enterprise Solutions</option>
-                  <option value="dedicated">Hire Dedicated Developer</option>
-                  <option value="consultation">Business Consultation</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="other">Others</option>
-                </select>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="requirement"
+                  placeholder="Example: Need ecommerce website with admin panel"
+                />
                 <div class="text-danger small mt-1" *ngIf="ctrl('requirement')?.touched && ctrl('requirement')?.invalid">
-                  Please select your requirement.
+                  Please enter your requirement.
                 </div>
               </div>
 
               <!-- Message -->
               <div class="mb-3">
                 <label class="form-label fw-semibold">Message *</label>
-                <textarea 
-                  class="form-control" 
-                  rows="5" 
+                <textarea
+                  class="form-control"
+                  rows="5"
                   formControlName="message"
                   placeholder="Tell us about your project, goals, and timeline..."
                 ></textarea>
@@ -198,19 +184,23 @@
               <div class="mb-4">
                 <label class="form-label fw-semibold">Attachment (Optional)</label>
                 <div class="file-upload">
-                  <input type="file" id="fileUpload" class="file-input">
+                  <input type="file" id="fileUpload" class="file-input" (change)="onFileSelected($event)">
                   <label for="fileUpload" class="file-label">
                     <i class="bi bi-cloud-upload"></i>
                     <span>Click to upload or drag and drop</span>
                     <small>Max file size: 5MB</small>
                   </label>
                 </div>
+                <div class="text-danger small mt-1" *ngIf="fileError">{{ fileError }}</div>
+                <small class="text-muted d-block mt-2" *ngIf="selectedFile">
+                  Selected file: {{ selectedFile.name }}
+                </small>
               </div>
 
               <!-- Submit Button -->
               <div class="d-flex gap-3 align-items-center">
-                <button 
-                  class="btn btn-primary btn-lg px-5" 
+                <button
+                  class="btn btn-primary btn-lg px-5"
                   type="submit"
                   [disabled]="isSubmitting"
                 >

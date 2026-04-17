@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "jd-infotech-portfolio": {
+    "Skygalaxy-infotech": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -87,10 +87,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "jd-infotech-portfolio:build:production"
+              "buildTarget": "Skygalaxy-infotech:build:production"
             },
             "development": {
-              "buildTarget": "jd-infotech-portfolio:build:development"
+              "buildTarget": "Skygalaxy-infotech:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,7 +1,5 @@
-import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
 import { FeatureFlagService } from '../../services/feature-flag.service';
 
 @Component({
@@ -11,17 +9,14 @@ import { FeatureFlagService } from '../../services/feature-flag.service';
   styleUrl: './dashboard.scss',
 })
 export class Dashboard implements OnInit {
-  currentUser: string = '';
   currentTime: string = '';
   currentDate: string = '';
   showAdminPanel = false;
   activePanel: 'dashboard' | 'portfolio' | 'services' | 'team' | 'testimonials' | 'blog' | 'settings' = 'dashboard';
-  private platformId = inject(PLATFORM_ID);
 
-  constructor(private router: Router, private featureFlagService: FeatureFlagService) {}
+  constructor(private featureFlagService: FeatureFlagService) {}
 
   ngOnInit(): void {
-    this.loadUserInfo();
     this.updateDateTime();
     this.checkAdminPanelAccess();
     setInterval(() => this.updateDateTime(), 1000);
@@ -29,16 +24,6 @@ export class Dashboard implements OnInit {
 
   checkAdminPanelAccess(): void {
     this.showAdminPanel = this.featureFlagService.isFeatureEnabled('adminPanel');
-  }
-
-  loadUserInfo(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const user = localStorage.getItem('auth_user');
-      this.currentUser = user || 'User';
-      return;
-    }
-
-    this.currentUser = 'User';
   }
 
   updateDateTime(): void {
@@ -54,14 +39,6 @@ export class Dashboard implements OnInit {
       month: 'long',
       day: 'numeric',
     });
-  }
-
-  logout(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('auth_user');
-      localStorage.removeItem('auth_token');
-    }
-    this.router.navigate(['/']);
   }
 
   getAdminTab(): 'portfolio' | 'services' | 'team' | 'testimonials' | 'blog' | 'settings' {

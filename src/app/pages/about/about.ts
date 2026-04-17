@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './about.scss',
 })
 export class AboutComponent {
-  brand = 'JD Infotech';
+  brand = 'Skygalaxy Infotech';
 
   points = [
     'We are a client-focused IT services team.',

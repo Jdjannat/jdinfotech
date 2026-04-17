@@ -1,0 +1,29 @@
+@use '../shared-admin.scss';
+
+:host {
+	display: block;
+}
+
+.component-header h2,
+.summary-row,
+.form-label,
+.modal-body label {
+	color: #1f2a44 !important;
+}
+
+.table {
+	background-color: #ffffff;
+}
+
+.table td,
+.table th {
+	vertical-align: middle;
+}
+
+.details-grid .fw-semibold {
+	white-space: pre-wrap;
+}
+
+.modal-content {
+	background-color: #ffffff;
+}

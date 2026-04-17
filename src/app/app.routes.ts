@@ -4,6 +4,8 @@ import { AboutComponent } from './pages/about/about';
 import { ServicesComponent } from './pages/services/services';
 import { PortfolioComponent } from './pages/portfolio/portfolio';
 import { ContactComponent } from './pages/contact/contact';
+import { Career } from './pages/career/career';
+import { CareerDetailComponent } from './pages/career/career-detail';
 import { Login } from './Admin/login/login';
 import { Main } from './layout/main/main';
 
@@ -15,6 +17,7 @@ import { SettingsComponent } from './Admin/settings-component/settings-component
 import { BlogComponent } from './Admin/blog-component/blog-component';
 import { PortfolioComponentComp } from './Admin/portfoliocomponent/portfoliocomponent';
 import { adminAuthGuard, adminChildAuthGuard, loginGuard } from './guards/auth.guard';
+import { Inquiry } from './Admin/inquiry/inquiry';
 
 export const routes: Routes = [
   {
@@ -25,6 +28,8 @@ export const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'services', component: ServicesComponent },
       { path: 'portfolio', component: PortfolioComponent },
+      { path: 'careers', component: Career },
+      { path: 'careers/:id', component: CareerDetailComponent },
       { path: 'contact', component: ContactComponent },
     ],
   },
@@ -45,6 +50,10 @@ export const routes: Routes = [
       { path: 'testimonials', component: TestimonialsComponent },
       { path: 'team', component: TeamComponent },
       { path: 'settings', component: SettingsComponent },
+      { path: 'inquiry', component: Inquiry},
+      { path: 'career/new', loadComponent: () => import('./Admin/career/career-form/career-form').then((m) => m.CareerFormComponent) },
+      { path: 'career/:id/edit', loadComponent: () => import('./Admin/career/career-form/career-form').then((m) => m.CareerFormComponent) },
+      { path: 'career', loadComponent: () => import('./Admin/career/career').then((m) => m.Career) },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

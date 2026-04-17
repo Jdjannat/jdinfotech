@@ -11,7 +11,7 @@ type Insight = { title: string; date: string; tag: string; };
   styleUrl: './home.scss',
 })
 export class HomeComponent {
-    brand = 'JD Infotech';
+    brand = 'Skygalaxy Infotech';
 
     capabilities: Card[] = [
     { icon: 'bi-bar-chart', title: 'Analytics & Dashboards', desc: 'KPIs, reporting, and insights for faster decisions.' },

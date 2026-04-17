@@ -1,8 +1,80 @@
 .admin-panel-container {
   display: flex;
-  gap: 0;
+  flex-direction: column;
   min-height: 100vh;
   background-color: #f5f6fa;
+}
+
+.admin-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+
+  .header-content {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+
+    .user-icon {
+      font-size: 20px;
+    }
+
+    .user-name {
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .logout-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.admin-panel-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
 }
 
 // Sidebar Styling
@@ -11,8 +83,7 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  height: calc(100vh - 84px);
   overflow-y: auto;
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
 
@@ -122,14 +193,28 @@
 
 // Responsive
 @media (max-width: 768px) {
-  .admin-panel-container {
+  .admin-panel-body {
     flex-direction: column;
+  }
+
+  .admin-header {
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .header-right {
+      width: 100%;
+      justify-content: space-between;
+    }
   }
 
   .admin-sidebar {
     width: 100%;
     height: auto;
-    position: static;
+    position: sticky;
+    top: 84px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 
     .sidebar-nav {
@@ -190,6 +275,12 @@
 }
 
 @media (max-width: 480px) {
+  .admin-header {
+    .logo {
+      font-size: 20px;
+    }
+  }
+
   .admin-sidebar {
     .sidebar-header h3 {
       font-size: 14px;

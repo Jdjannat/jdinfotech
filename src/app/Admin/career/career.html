@@ -1,0 +1,127 @@
+<div class="container py-3">
+  <div class="d-flex justify-content-between align-items-center mb-3 component-header">
+    <h2 class="m-0">Career Management</h2>
+
+    <a class="btn btn-primary btn-sm" [routerLink]="['/admin/career/new']">
+      Add New Career Opening
+    </a>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-3 small text-muted summary-row">
+    <span>Current openings: {{ totalCareers() }}</span>
+    <span>Manage live career positions with view, edit, and delete actions.</span>
+  </div>
+
+  <div class="table-responsive shadow-sm rounded-4 overflow-hidden">
+    <table class="table table-hover table-bordered align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Title</th>
+          <th>Department</th>
+          <th>Location</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (career of careers(); track trackByCareer($index, career)) {
+          <tr>
+            <td>
+              <div class="fw-semibold text-dark">{{ career.title }}</div>
+              <div class="small text-muted">{{ career.experience }}</div>
+            </td>
+            <td>{{ career.department }}</td>
+            <td>{{ career.location }}</td>
+            <td>{{ career.employmentType }}</td>
+            <td>
+              <span class="badge text-bg-primary">{{ career.status }}</span>
+            </td>
+            <td>
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-outline-primary btn-sm" type="button" (click)="viewCareer(career)">
+                  View
+                </button>
+                <a class="btn btn-warning btn-sm" [routerLink]="['/admin/career', career.id, 'edit']">
+                  Edit
+                </a>
+                <button class="btn btn-danger btn-sm" type="button" (click)="requestDelete(career.id)">
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="8" class="text-center py-4 text-muted">
+              No career openings available.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="modal fade" tabindex="-1" #careerViewModal>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0 rounded-4">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title">Career Details</h5>
+        <button type="button" class="btn-close" (click)="closeCareerView()"></button>
+      </div>
+
+      <div class="modal-body">
+        @if (selectedCareer(); as career) {
+          <div class="row g-3 details-grid">
+            <div class="col-md-6">
+              <label class="text-muted">Job Title</label>
+              <div class="fw-semibold text-dark">{{ career.title }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="text-muted">Department</label>
+              <div class="fw-semibold text-dark">{{ career.department }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="text-muted">Location</label>
+              <div class="fw-semibold text-dark">{{ career.location }}</div>
+            </div>
+            <div class="col-md-6">
+              <label class="text-muted">Employment Type</label>
+              <div class="fw-semibold text-dark">{{ career.employmentType }}</div>
+            </div>
+            <div class="col-md-4">
+              <label class="text-muted">Status</label>
+              <div><span class="badge text-bg-primary">{{ career.status }}</span></div>
+            </div>
+            <div class="col-md-4">
+              <label class="text-muted">Open Positions</label>
+              <div class="fw-semibold text-dark">{{ career.openings }}</div>
+            </div>
+            <div class="col-md-4">
+              <label class="text-muted">Experience</label>
+              <div class="fw-semibold text-dark">{{ career.experience }}</div>
+            </div>
+            <div class="col-12">
+              <label class="text-muted">Description</label>
+              <div class="fw-semibold text-dark">{{ career.description }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-dialog
+  [open]="pendingDeleteId() !== null"
+  title="Delete Career Opening"
+  message="Are you sure you want to delete this career opening?"
+  confirmText="Delete"
+  cancelText="Cancel"
+  [loading]="isDeleting()"
+  (confirmed)="confirmDelete()"
+  (cancelled)="cancelDelete()">
+</app-confirm-dialog>

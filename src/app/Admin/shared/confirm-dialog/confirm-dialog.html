@@ -1,0 +1,33 @@
+<div class="modal fade" tabindex="-1" #confirmModal>
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content confirm-shell">
+      <div class="modal-header">
+        <h6 class="modal-title">{{ title }}</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="cancel()"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="mb-0">{{ message }}</p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          data-bs-dismiss="modal"
+          (click)="cancel()"
+          [disabled]="loading">
+          {{ cancelText }}
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="confirm()"
+          [disabled]="loading">
+          {{ loading ? 'Deleting...' : confirmText }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

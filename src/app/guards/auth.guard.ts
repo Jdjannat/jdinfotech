@@ -4,7 +4,8 @@ import { CanActivateChildFn, CanActivateFn, Router } from '@angular/router';
 
 function hasAuthToken(platformId: object): boolean {
   if (!isPlatformBrowser(platformId)) {
-    return false;
+    // Avoid server-side redirects on hard refresh; enforce auth in browser.
+    return true;
   }
 
   return Boolean(localStorage.getItem('auth_token'));
@@ -18,7 +19,7 @@ export const adminAuthGuard: CanActivateFn = (_route, state) => {
     return true;
   }
 
-  return router.createUrlTree(['/admin/login'], {
+  return router.createUrlTree(['/login'], {
     queryParams: { returnUrl: state.url },
   });
 };

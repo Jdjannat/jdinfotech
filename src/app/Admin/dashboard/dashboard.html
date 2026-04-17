@@ -1,71 +1,41 @@
-<div class="admin-layout">
-  <!-- Header -->
-  <header class="admin-header">
-    <div class="header-content">
-      <h1 class="logo">Admin Dashboard</h1>
-      <div class="header-right">
-        <div class="user-info">
-          <span class="user-icon">👤</span>
-          <span class="user-name">{{ currentUser }}</span>
-        </div>
-        <button class="logout-btn" (click)="logout()">Sign Out</button>
+<!-- Dashboard Overview - Only shown when activePanel is 'dashboard' -->
+<div *ngIf="activePanel === 'dashboard'">
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-card">
+      <h2>Welcome to Dashboard! <i class="bi bi-stars" aria-hidden="true"></i></h2>
+      <p class="welcome-text">You have successfully logged in</p>
+      <div class="datetime-info">
+        <p class="date">{{ currentDate }}</p>
+        <p class="time">{{ currentTime }}</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Main Panel with Sidebar -->
-  <div class="admin-panel-layout">
-    <!-- Content Area -->
-    <div class="admin-content">
-      <!-- Dashboard Overview - Only shown when activePanel is 'dashboard' -->
-      <div *ngIf="activePanel === 'dashboard'">
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-          <div class="welcome-card">
-            <h2>Welcome to Dashboard! 🎉</h2>
-            <p class="welcome-text">You have successfully logged in</p>
-            <div class="datetime-info">
-              <p class="date">{{ currentDate }}</p>
-              <p class="time">{{ currentTime }}</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats-section">
-          <h3>Quick Stats</h3>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon">📊</div>
-              <h4>Total Projects</h4>
-              <p class="stat-number">12</p>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">👥</div>
-              <h4>Active Users</h4>
-              <p class="stat-number">45</p>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">✅</div>
-              <h4>Completed Tasks</h4>
-              <p class="stat-number">128</p>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">⚠️</div>
-              <h4>Pending Reviews</h4>
-              <p class="stat-number">8</p>
-            </div>
-          </div>
-        </section>
-
-        
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <h3>Quick Stats</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="bi bi-bar-chart-line-fill" aria-hidden="true"></i></div>
+        <h4>Total Projects</h4>
+        <p class="stat-number">12</p>
       </div>
-
+      <div class="stat-card">
+        <div class="stat-icon"><i class="bi bi-people-fill" aria-hidden="true"></i></div>
+        <h4>Active Users</h4>
+        <p class="stat-number">45</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="bi bi-check-circle-fill" aria-hidden="true"></i></div>
+        <h4>Completed Tasks</h4>
+        <p class="stat-number">128</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i></div>
+        <h4>Pending Reviews</h4>
+        <p class="stat-number">8</p>
+      </div>
     </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="admin-footer">
-    <p>&copy; 2026 JD Infotech. All rights reserved.</p>
-  </footer>
+  </section>
 </div>
